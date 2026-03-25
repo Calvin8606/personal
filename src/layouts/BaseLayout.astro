@@ -1,0 +1,37 @@
+---
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1"
+		/>
+		<title>calvinchau.dev</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<canvas
+			id="starfield"
+			class="fixed top-0 left-0 w-full h-full -z-10"></canvas>
+		<Navbar />
+		<main class="max-w-5xl mx-auto px-8">
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<script>
+	import { createStarfield } from "../scripts/starfield.ts";
+	createStarfield();
+</script>
